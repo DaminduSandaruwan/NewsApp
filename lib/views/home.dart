@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/helper/data.dart';
+import 'package:news_app/models/category_model.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -6,6 +8,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  List<CategoryModel> categories = new List<CategoryModel>();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    categories= getCategories();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +38,22 @@ class _HomeState extends State<Home> {
         centerTitle: true,
       ),
       body: Container(
-
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: ListView.builder(
+                itemCount: categories.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return CategoryTile(
+                    imageUrl: categories[index].imgUrl,
+                    categoryName: categories[index].categoryName,
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
