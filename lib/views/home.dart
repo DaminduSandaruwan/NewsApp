@@ -41,9 +41,11 @@ class _HomeState extends State<Home> {
         child: Column(
           children: <Widget>[
             Container(
+              height: 70,
               child: ListView.builder(
                 itemCount: categories.length,
                 shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return CategoryTile(
                     imageUrl: categories[index].imgUrl,
