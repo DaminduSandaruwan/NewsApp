@@ -9,11 +9,29 @@ class BlogTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom:16),
       child: Column(
         children: <Widget>[
-          Image.network(imageUrl),
-          Text(title),
-          Text(desc),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(6),
+            child: Image.network(imageUrl),
+          ),
+          SizedBox(height: 7,),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 7,),
+          Text(
+            desc,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.black87,
+            ),
+          ),
         ],
       ),
     );
