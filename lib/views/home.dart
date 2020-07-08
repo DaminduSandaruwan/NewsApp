@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/helper/data.dart';
+import 'package:news_app/helper/news.dart';
+import 'package:news_app/models/article_model.dart';
 import 'package:news_app/models/category_model.dart';
+import 'package:news_app/widgets/blogTile.dart';
 import 'package:news_app/widgets/categoryTile.dart';
 
 class Home extends StatefulWidget {
@@ -11,12 +14,26 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   List<CategoryModel> categories = new List<CategoryModel>();
+  List<ArticleModel> articles = new List<ArticleModel>();
+  bool _loading = true;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     categories= getCategories();
+    getNews();
   }
+  
+  getNews() async{
+    News newsClass = News();
+    await newsClass.getNews();
+    articles = newsClass.news;
+    setState(() {
+      _loading = false;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,25 +55,51 @@ class _HomeState extends State<Home> {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.symmetric(horizontal:16),
-              height: 70,
-              child: ListView.builder(
-                itemCount: categories.length,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return CategoryTile(
-                    imageUrl: categories[index].imgUrl,
-                    categoryName: categories[index].categoryName,
-                  );
-                },
+      body: _loading ? Container(
+        child: Center(
+          child: CircularProgressIndicator(),
+         ),
+      ) : 
+      //Categories
+      SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.symmetric(horizontal:16),
+                height: 70,
+                child: ListView.builder(
+                  itemCount: categories.length,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CategoryTile(
+                      imageUrl: categories[index].imgUrl,
+                      categoryName: categories[index].categoryName,
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+
+              //News Blogs
+              Container(
+                height: MediaQuery.of(context).size.height,
+                  child: ListView.builder(
+                    itemCount: articles.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return BlogTile(
+                        imageUrl: articles[index].urlToImage,
+                        title: articles[index].title,
+                        desc: articles[index].description,
+
+                      );
+                    },
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

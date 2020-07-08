@@ -1,15 +1,12 @@
 import 'dart:convert';
-
 import 'package:news_app/models/article_model.dart';
 import 'package:http/http.dart' as http;
 
 class News {
-  List<ArticleModel> news =[
-    
-  ];
+  List<ArticleModel> news =[];
 
   Future<void> getNews() async{
-    String url ="http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=6568af3c82d24a609133ab5e07393efc";
+    String url ="http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=6568af3c82d24a609133ab5e07393efc";
 
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
@@ -22,9 +19,10 @@ class News {
             description: element['description'],
             url: element['url'],
             urlToImage: element['urlToImage'],
-            publishedAt: element['publishedAt'],
-            content: element['content']
+            // publishedAt: element['publishedAt'],
+            content: element['contents']
           );
+          news.add(articleModel);
         }
       });
     }
