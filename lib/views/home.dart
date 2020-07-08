@@ -63,10 +63,10 @@ class _HomeState extends State<Home> {
       //Categories
       SingleChildScrollView(
         child: Container(
+          padding: EdgeInsets.symmetric(horizontal:16),
           child: Column(
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal:16),
+              Container(                
                 height: 70,
                 child: ListView.builder(
                   itemCount: categories.length,
@@ -84,6 +84,7 @@ class _HomeState extends State<Home> {
               //News Blogs
               Container(
                 height: MediaQuery.of(context).size.height,
+                padding: EdgeInsets.only(top:16),
                   child: ListView.builder(
                     itemCount: articles.length,
                     shrinkWrap: true,
