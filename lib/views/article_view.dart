@@ -17,12 +17,32 @@ class _ArticleViewState extends State<ArticleView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: WebView(
-        initialUrl: widget.blogUrl,
-        onWebViewCreated: (WebViewController webViewController){
-          _completer.complete(webViewController);
-        },
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Flutter",
+            ),
+            Text(
+              "News",
+              style: TextStyle(
+                color: Colors.blue,
+              ),
+            ),
+          ],
+        ),
+        elevation: 0.0,
+        centerTitle: true,
+      ),
+      body: Container(
+        child: WebView(
+          initialUrl: widget.blogUrl,
+          onWebViewCreated: (WebViewController webViewController){
+            _completer.complete(webViewController);
+          },
+        ),
       ),
     );
   }
