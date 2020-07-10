@@ -18,7 +18,6 @@ class _CategoryNewsState extends State<CategoryNews> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCategoryNews();
   }
@@ -64,8 +63,10 @@ class _CategoryNewsState extends State<CategoryNews> {
         centerTitle: true,
       ),
       body: _loading ? Container(
-        child: Container(
-          child: Center(child: CircularProgressIndicator()),
+        child: Center(
+          child: Container(
+            child: CircularProgressIndicator(),
+          ),
         ),
       ) :
       SingleChildScrollView(

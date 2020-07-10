@@ -18,7 +18,6 @@ class _HomeState extends State<Home> {
   bool _loading = true;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     categories= getCategories();
     getNews();
