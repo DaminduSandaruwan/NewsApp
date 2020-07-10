@@ -8,8 +8,34 @@ class CategoryNews extends StatefulWidget {
 class _CategoryNewsState extends State<CategoryNews> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Flutter",
+            ),
+            Text(
+              "News",
+              style: TextStyle(
+                color: Colors.blue,
+              ),
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          Opacity(
+            opacity: 0,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal:16),
+              child: Icon(Icons.save),
+            ),
+          ),
+        ],
+        elevation: 0.0,
+        centerTitle: true,
+      ),
     );
   }
 }
