@@ -71,12 +71,13 @@ class _CategoryNewsState extends State<CategoryNews> {
       ) :
       SingleChildScrollView(
         child: Container(
+          padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
               //Blogs
               Container(
                 height: MediaQuery.of(context).size.height,
-                padding: EdgeInsets.only(top:16),
+                padding: EdgeInsets.symmetric(horizontal:10),
                   child: ListView.builder(
                     itemCount: articles.length,
                     shrinkWrap: true,
