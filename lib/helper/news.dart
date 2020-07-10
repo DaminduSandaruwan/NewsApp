@@ -30,7 +30,7 @@ class News {
 }
 
 
-class CategoryNews {
+class CategoryNewsClass {
   List<ArticleModel> news =[];
 
   Future<void> getNews(String category) async{
