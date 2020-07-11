@@ -18,6 +18,7 @@ class BlogTile extends StatelessWidget {
         ));
       },
       child: Container(
+        color: Colors.grey,
         margin: EdgeInsets.only(bottom:16),
         child: Column(
           children: <Widget>[
