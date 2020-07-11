@@ -18,7 +18,7 @@ class BlogTile extends StatelessWidget {
         ));
       },
       child: Container(
-        color: Colors.grey,
+        color: Colors.black,
         margin: EdgeInsets.only(bottom:16),
         child: Column(
           children: <Widget>[
@@ -31,7 +31,7 @@ class BlogTile extends StatelessWidget {
               title,
               style: TextStyle(
                 fontSize: 20,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w400,
               ),
             ),
             SizedBox(height: 7,),
@@ -39,7 +39,7 @@ class BlogTile extends StatelessWidget {
               desc,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.black87,
+                color: Colors.white,
               ),
             ),
           ],
