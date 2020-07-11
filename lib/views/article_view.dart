@@ -23,7 +23,7 @@ class _ArticleViewState extends State<ArticleView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "BBC",
+              "Latest",
             ),
             Text(
               "News",

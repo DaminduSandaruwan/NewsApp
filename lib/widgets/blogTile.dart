@@ -41,7 +41,7 @@ class BlogTile extends StatelessWidget {
               textAlign: TextAlign.justify,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.white,
+                color: Colors.grey,
               ),
             ),
             SizedBox(height: 30,),
