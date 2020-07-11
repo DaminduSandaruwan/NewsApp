@@ -40,7 +40,7 @@ class CategoryTile extends StatelessWidget {
                 categoryName,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 14,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),

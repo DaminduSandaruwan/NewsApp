@@ -29,6 +29,7 @@ class BlogTile extends StatelessWidget {
             SizedBox(height: 7,),
             Text(
               title,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
@@ -37,11 +38,13 @@ class BlogTile extends StatelessWidget {
             SizedBox(height: 7,),
             Text(
               desc,
+              textAlign: TextAlign.justify,
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.white,
               ),
             ),
+            SizedBox(height: 30,),
           ],
         ),
       ),
